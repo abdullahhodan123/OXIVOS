@@ -1,9 +1,9 @@
 import {Routes, Route} from 'react-router-dom'
-import Home from '../pages/home'
-import ProductDetails from '../pages/productDetails'
-import Cart from '../pages/cart'
-import Checkout from '../pages/checkout'
-import NotFound from '../pages/notFound'
+import Home from '../pages/Home'
+import ProductDetails from '../pages/ProductDetails'
+import Cart from '../pages/Cart'
+import Checkout from '../pages/Checkout'
+import NotFound from '../pages/NotFound'
 
 function AppRoutes() {
   return (
