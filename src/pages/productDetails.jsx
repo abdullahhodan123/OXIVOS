@@ -3,12 +3,19 @@ import products from "../data/product";
 import Container from "../components/common/Container";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import useCart from "../hooks/useCart";
+
+
+
+
 
 
 
 function ProductDetails() {
   const { id } = useParams();
   const [quantity, setQuantity] = useState(1);
+
+  const { addToCart } = useCart();
 
   const increaseQuantity = () => {
   setQuantity(quantity + 1);
@@ -159,6 +166,12 @@ const decreaseQuantity = () => {
         </div>
 
       </div>
+      <button
+  onClick={() => addToCart(product)}
+  className="mt-8 w-full rounded-xl bg-slate-900 py-3 font-semibold text-white transition hover:bg-blue-600"
+>
+  Add to Cart
+</button>
     </Container>
   );
 }
