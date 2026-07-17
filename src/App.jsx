@@ -1,11 +1,11 @@
-import Navbar from "./components/layout/Nabvar";
+import Nabvar from "./components/layout/Nabvar";
 import Footer from "./components/layout/Footer";
 import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar />
+      <Nabvar />
       <main className="flex-1">
         <AppRoutes />
       </main>
