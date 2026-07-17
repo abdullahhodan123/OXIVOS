@@ -4,6 +4,7 @@ import ProductDetails from '../pages/ProductDetails'
 import Cart from '../pages/Cart'
 import Checkout from '../pages/Checkout'
 import NotFound from '../pages/NotFound'
+import Products from "../pages/Products";
 
 
 
@@ -15,7 +16,7 @@ function AppRoutes() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/not-found" element={<NotFound />} />
-    
+      <Route path="/products" element={<Products />} />
     </Routes>
   );
 }
