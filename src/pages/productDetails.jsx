@@ -167,7 +167,9 @@ const decreaseQuantity = () => {
 
       </div>
       <button
-  onClick={() => addToCart(product)}
+  onClick={() => {
+    console.log("Quantity:", quantity);
+    addToCart(product, quantity)}}
   className="mt-8 w-full rounded-xl bg-slate-900 py-3 font-semibold text-white transition hover:bg-blue-600"
 >
   Add to Cart

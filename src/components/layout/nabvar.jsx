@@ -3,9 +3,11 @@ import { NavLink } from "react-router-dom";
 import { HiOutlineBars3, HiOutlineXMark } from "react-icons/hi2";
 import Container from "../common/Container";
 import { useEffect, useState } from "react";
+import useCart from "../../hooks/useCart";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { cartItems } = useCart();
 
  useEffect(() => {
   if (isOpen) {
@@ -39,6 +41,7 @@ function Navbar() {
             >
               <span className="text-blue-600">OXI</span>VOS
             </NavLink>
+         
 
             {/* Desktop Menu */}
             <ul className="hidden items-center gap-8 lg:flex">
@@ -57,6 +60,12 @@ function Navbar() {
         {({ isActive }) => (
           <>
             {link.name}
+
+            {link.name === "Cart" && (
+    <span className="ml-2 rounded-full bg-blue-600 px-2 py-1 text-xs text-white">
+      {cartItems.length}
+    </span>
+  )}
 
             <span
               className={`absolute bottom-0 left-0 h-0.5 bg-blue-600 transition-all duration-300 ${
