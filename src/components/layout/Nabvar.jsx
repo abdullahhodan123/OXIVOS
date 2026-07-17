@@ -5,7 +5,7 @@ import Container from "../common/Container";
 import { useEffect, useState } from "react";
 import useCart from "../../hooks/useCart";
 
-function Navbar() {
+function Nabvar() {
   const [isOpen, setIsOpen] = useState(false);
   const { cartItems } = useCart();
 
