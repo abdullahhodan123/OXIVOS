@@ -1,14 +1,12 @@
 import ProductCard from "./ProductCard";
+import products from "../../data/product";
 
 function ProductGrid() {
   return (
     <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
     </div>
   );
 }
