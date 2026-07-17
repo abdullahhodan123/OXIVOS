@@ -3,7 +3,9 @@ import heroImage from "../assets/images/hero.png";
 
 function HeroSection() {
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section className="relative overflow-hidden bg-slate-50 py-16 lg:py-24">
+        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-blue-100 opacity-50 blur-3xl"></div>
+        
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Left Content */}
@@ -12,36 +14,54 @@ function HeroSection() {
               NEW ARRIVAL
             </span>
 
-            <h1 className="mt-6 text-4xl font-bold leading-tight text-slate-900 md:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-3xl font-bold leading-tight text-slate-900 sm:text-4xl md:text-5xl lg:text-6xl">
               Discover Your
               <span className="block text-blue-600">Perfect Style</span>
             </h1>
 
-            <p className="mt-6 max-w-lg text-lg leading-8 text-slate-600">
+            <p className="mt-6 max-w-lg text-base leading-8 text-slate-600 sm:text-lg">
               Explore our latest fashion collection with premium quality,
               modern designs, and unbeatable prices. Dress with confidence,
               every single day.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <button className="rounded-lg bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700">
-                Shop Now
-              </button>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              
+            <button className="flex h-12 items-center justify-center rounded-xl bg-blue-600 px-8 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 hover:shadow-xl">
+  Shop
+</button>
+              <button className="flex h-12 items-center justify-center rounded-xl border border-slate-300 bg-white px-8 font-semibold text-slate-700 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600 hover:text-blue-600">
+  Explore
+</button>
+              <div className="mt-10 flex flex-wrap gap-8 border-t border-slate-200 pt-8">
+  <div>
+    <h3 className="text-2xl font-bold text-slate-900">50K+</h3>
+    <p className="text-sm text-slate-600">Happy Customers</p>
+  </div>
 
-              <button className="rounded-lg border border-slate-300 px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-100">
-                Explore
-              </button>
+  <div>
+    <h3 className="text-2xl font-bold text-slate-900">500+</h3>
+    <p className="text-sm text-slate-600">Products</p>
+  </div>
+
+  <div>
+    <h3 className="text-2xl font-bold text-slate-900">99%</h3>
+    <p className="text-sm text-slate-600">Satisfaction</p>
+  </div>
+</div>
             </div>
           </div>
 
           {/* Right Image */}
           <div className="flex justify-center">
-            <img
-              src={heroImage}
-              alt="Fashion Model"
-              className="w-full max-w-md object-contain lg:max-w-lg"
-            />
-          </div>
+  <div className="rounded-3xl bg-white p-8 shadow-xl">
+    <img
+      src={heroImage}
+      alt="Fashion Model"
+      className="w-full max-w-md object-contain transition-transform duration-500 hover:scale-105 lg:max-w-lg"
+    />
+  </div>
+</div>
         </div>
       </Container>
     </section>
