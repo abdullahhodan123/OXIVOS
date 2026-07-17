@@ -3,28 +3,44 @@ import { createContext, useEffect, useState } from "react";
 export const CartContext = createContext();
 
 function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    if (typeof window === "undefined") return [];
 
-  // Load cart from localStorage
-  useEffect(() => {
-    const storedCart = localStorage.getItem("cartItems");
-
-    if (storedCart) {
-      setCartItems(JSON.parse(storedCart));
+    try {
+      const storedCart = localStorage.getItem("cartItems");
+      return storedCart ? JSON.parse(storedCart) : [];
+    } catch (error) {
+      console.error("Failed to load cart from localStorage:", error);
+      return [];
     }
+  });
+
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  useEffect(() => {
+    setIsHydrated(true);
   }, []);
 
   // Save cart to localStorage
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  }, [cartItems]);
+    if (!isHydrated) return;
+
+    try {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    } catch (error) {
+      console.error("Failed to save cart to localStorage:", error);
+    }
+  }, [cartItems, isHydrated]);
 
   // Add product to cart
   const addToCart = (product, quantity = 1) => {
     setCartItems((prevItems) => {
+      
       const existingProduct = prevItems.find(
         (item) => item.id === product.id
       );
+      console.log("Adding Product:", product);
+      console.log("Quantity:", quantity);
 
       if (existingProduct) {
         return prevItems.map((item) =>
