@@ -12,6 +12,7 @@ const products = [
 "colors": ["White", "black"],
 "sizes": ["8", "10", "11"],
 "inStock": true,
+"quantity":10,
 "description": "Short product description..."
   },
   
