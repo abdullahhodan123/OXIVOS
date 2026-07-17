@@ -13,48 +13,32 @@ function ProductCard({ product }) {
   } = product;
 
   return (
-    <div className="group overflow-hidden rounded-3xl bg-white shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
-
-      {/* Image */}
+    <div className="group overflow-hidden rounded-[24px] border border-slate-200 bg-white shadow-[0_10px_30px_rgba(15,23,42,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(15,23,42,0.12)]">
       <div className="relative overflow-hidden bg-slate-100">
-
-        {/* New Badge */}
-        <span className="absolute left-4 top-4 z-10 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white">
-          NEW
+        <span className="absolute left-4 top-4 z-10 rounded-full bg-blue-600 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-white">
+          New
         </span>
 
-        {/* Wishlist */}
-        <button className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow transition hover:bg-red-500 hover:text-white">
+        <button className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-lg text-slate-600 shadow-sm transition hover:bg-red-500 hover:text-white">
           ♡
         </button>
 
         <img
           src={image}
           alt={name}
-          className="h-72 w-full object-cover transition duration-500 group-hover:scale-110"
+          className="h-72 w-full object-cover transition duration-500 group-hover:scale-105"
         />
       </div>
 
-      {/* Content */}
       <div className="space-y-4 p-6">
-
-        <p className="text-sm font-medium uppercase tracking-wide text-blue-600">
-          {category}
-        </p>
-
-        <h3 className="text-xl font-bold text-slate-900">
-          {name}
-        </h3>
-
-        <div className="flex items-center justify-between text-sm">
-          <span className="text-yellow-500">
-            ⭐ {rating}
-          </span>
-
+        <div className="flex items-center justify-between">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
+            {category}
+          </p>
           <span
-            className={`rounded-full px-3 py-1 text-xs font-semibold ${
+            className={`rounded-full px-3 py-1 text-[11px] font-semibold ${
               inStock
-                ? "bg-green-100 text-green-700"
+                ? "bg-emerald-100 text-emerald-700"
                 : "bg-red-100 text-red-700"
             }`}
           >
@@ -62,46 +46,38 @@ function ProductCard({ product }) {
           </span>
         </div>
 
-        {/* Colors */}
+        <div>
+          <h3 className="text-xl font-bold text-slate-900">{name}</h3>
+          <div className="mt-2 flex items-center gap-2 text-sm text-slate-500">
+            <span className="text-amber-500">★ {rating}</span>
+            <span>•</span>
+            <span>Premium collection</span>
+          </div>
+        </div>
+
         {colors && (
           <div className="flex gap-2">
             {colors.map((color, index) => (
               <span
                 key={index}
-                className="h-5 w-5 rounded-full border"
-                style={{
-                  backgroundColor: color.toLowerCase(),
-                }}
+                className="h-5 w-5 rounded-full border border-slate-200"
+                style={{ backgroundColor: color.toLowerCase() }}
               />
             ))}
           </div>
         )}
 
-        <div className="flex items-center justify-between">
-
-          <h2 className="text-2xl font-bold text-slate-900">
-            ৳ {price.toLocaleString()}
-          </h2>
-
+        <div className="flex items-center justify-between border-t border-slate-100 pt-4">
+          <h2 className="text-2xl font-bold text-slate-900">৳ {price.toLocaleString()}</h2>
         </div>
 
-        <div className="flex gap-3">
-
-          <button className="flex-1 rounded-xl bg-slate-900 py-3 font-semibold text-white transition hover:bg-blue-600">
-            Add to Cart
-          </button>
-
-         <Link
-  to={`/products/${product.id}`}
-  className="block w-full rounded-xl bg-slate-900 py-3 text-center font-semibold text-white transition hover:bg-blue-600"
->
-  View Details
-</Link>
-
-        </div>
-
+        <Link
+          to={`/products/${product.id}`}
+          className="block w-full rounded-xl bg-slate-900 py-3 text-center text-sm font-semibold text-white transition hover:bg-blue-600"
+        >
+          View Details
+        </Link>
       </div>
-
     </div>
   );
 }

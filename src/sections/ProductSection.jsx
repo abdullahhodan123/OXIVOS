@@ -38,18 +38,20 @@ function ProductSection({
     : filteredProducts.slice(0, limit ?? filteredProducts.length);
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-gradient-to-b from-slate-50 to-white py-20">
       <Container>
-        <div className="mb-10">
-          <p className="text-sm font-semibold uppercase tracking-widest text-blue-600">
-            Our Collection
-          </p>
+        <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-600">
+              Our Collection
+            </p>
 
-          <h2 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
-            {title}
-          </h2>
+            <h2 className="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">
+              {title}
+            </h2>
+          </div>
 
-          <p className="mt-3 max-w-2xl text-slate-600">{description}</p>
+          <p className="max-w-2xl text-slate-600">{description}</p>
         </div>
 
         <div className={showFilters ? "grid gap-8 lg:grid-cols-[280px_1fr]" : ""}>
