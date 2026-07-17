@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import Container from "../components/common/Container";
 import FilterSidebar from "../components/product/FilterSidebar";
-import ProductGrid from "../components/product/ProductGrid";
+import ProductGrid from "../components/product/productGrid";
 import products from "../data/Product";
 
 function ProductSection({
